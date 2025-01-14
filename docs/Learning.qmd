@@ -1,0 +1,26 @@
+---
+title: "Reproducible document"
+author: "Alexander"
+format: html
+---
+
+## Basics of R
+
+```{r}
+1 + 1
+```
+## Setup Code Chunk
+```{r setup}
+library(tidyverse)
+```
+
+## About me
+- Alexander Hinz
+- SDU
+I am a new **Ph.d Student** at FGM under the supervision by *Susanne* Mandrup. My work is focused on in vivo adipogenesis in humans adipose tissue. 
+
+## Simple code
+```{r}
+3 * 3
+```
+
