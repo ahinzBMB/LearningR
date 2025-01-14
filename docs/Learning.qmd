@@ -12,6 +12,8 @@ format: html
 ## Setup Code Chunk
 ```{r setup}
 library(tidyverse)
+library(r3)
+library(r3admin)
 ```
 
 ## About me
@@ -25,3 +27,4 @@ I am a new **Ph.d Student** at FGM under the supervision by *Susanne* Mandrup. M
 ```
 ## Testing for Git
 Its cold in Denmark at this time of the year
+
