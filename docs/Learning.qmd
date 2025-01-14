@@ -12,9 +12,20 @@ format: html
 ## Setup Code Chunk
 ```{r setup}
 library(tidyverse)
-library(r3)
-library(r3admin)
+post_meal_data <- read_csv2(
+  here::here("data/post-meal-insulin.csv")
+)
+
 ```
+
+## Showing the data
+```{r}
+post_meal_data
+```
+```{r}
+glimpse(post_meal_data)
+```
+
 
 ## About me
 - Alexander Hinz
