@@ -17,7 +17,6 @@ library(tidyverse)
 post_meal_data <- read_csv2(
   here::here("data/post-meal-insulin.csv")
 )
-
 ```
 ## About me
 - Alexander Hinz
@@ -42,12 +41,14 @@ glimpse(post_meal_data)
 ```
 ## Visualization of Data
 ```{r}
-ggplot(post_meal_data, aes(x = BMI)) + geom_histogram()
+ggplot(post_meal_data, aes(x = BMI)) +
+  geom_histogram()
 ```
 ```{r}
 #| fig-cap: "Distribution of BMI"
 #| label: fig-bmi-histo
-ggplot(post_meal_data, aes(x = BMI)) + geom_histogram()
+ggplot(post_meal_data, aes(x = BMI)) +
+  geom_histogram()
 ```
 
 Making a figure link that opens a windows figure when hovering over it. 
@@ -55,13 +56,69 @@ Making a figure link that opens a windows figure when hovering over it.
 
 ## Exercise discerete plots
 
+### Plotting one discrete values
 ```{r}
 #| fig-cap: "Discrete plotting of glykemi"
 #| label: fig-glykemi
 
-ggplot(post_meal_data, aes(glykemi)) + geom_bar()
-
+ggplot(post_meal_data, aes(glykemi)) +
+  geom_bar()
 ```
 
 @fig-glykemi
 
+### Plotting two discrete values
+```{r}
+post_meal_data |>
+  ggplot(aes(x = Group, fill = glykemi)) +
+  geom_bar()
+```
+
+```{r}
+post_meal_data |>
+  ggplot(aes(x = Group, fill = as.character(glykemi))) +
+  geom_bar()
+```
+
+Position_dodge() places information next to each other
+```{r}
+post_meal_data |>
+  ggplot(aes(x = Group, fill = as.character(glykemi))) +
+  geom_bar(position = position_dodge())
+```
+## Putting two plots side by side
+
+```{r BMI histogram}
+ggplot(post_meal_data, aes(x = BMI)) +
+  geom_histogram()
+```
+
+```{r glykemi barplot}
+ggplot(post_meal_data, aes(x = glykemi)) +
+  geom_bar()
+```
+
+```{r side-by side-figs}
+#| label: fig-bmi-glykemi
+#| fig-cap: "BMI and glykemi, side by side"
+#| fig-subcap:
+#| - "Distribution of BMI"
+#| - "Number of those with glykemi"
+#| layout-ncol: 2
+
+ggplot(post_meal_data, aes(x = BMI)) +
+  geom_histogram()
+
+ggplot(post_meal_data, aes(x = glykemi)) +
+  geom_bar()
+```
+
+## Plotting two continous variables
+```{r scatterplot BMI and plasma glucose}
+#| label: fig-bmi-auc-pc
+#| fig-cap: "Scatterplot of correlation between BMI and Glucose"
+
+ggplot(post_meal_data, aes(x = BMI, y = auc_pg)) +
+  geom_point() +
+  geom_smooth()
+```
