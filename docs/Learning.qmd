@@ -11,13 +11,26 @@ format: html
 ```
 ## Setup Code Chunk
 ```{r setup}
+#| message: false
+#| warning: false
 library(tidyverse)
 post_meal_data <- read_csv2(
   here::here("data/post-meal-insulin.csv")
 )
 
 ```
+## About me
+- Alexander Hinz
+- SDU
+I am a new **Ph.d Student** at FGM under the supervision by *Susanne* Mandrup. My work is focused on in vivo adipogenesis in humans adipose tissue.
 
+## Simple code
+```{r}
+3 * 3
+```
+
+## Testing for Git
+Its cold in Denmark at this time of the year
 ## Showing the data
 ```{r}
 post_meal_data
@@ -27,15 +40,5 @@ glimpse(post_meal_data)
 ```
 
 
-## About me
-- Alexander Hinz
-- SDU
-I am a new **Ph.d Student** at FGM under the supervision by *Susanne* Mandrup. My work is focused on in vivo adipogenesis in humans adipose tissue. 
 
-## Simple code
-```{r}
-3 * 3
-```
-## Testing for Git
-Its cold in Denmark at this time of the year
 
