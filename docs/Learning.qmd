@@ -31,14 +31,37 @@ I am a new **Ph.d Student** at FGM under the supervision by *Susanne* Mandrup. M
 
 ## Testing for Git
 Its cold in Denmark at this time of the year
+
 ## Showing the data
 ```{r}
 post_meal_data
 ```
+
 ```{r}
 glimpse(post_meal_data)
 ```
+## Visualization of Data
+```{r}
+ggplot(post_meal_data, aes(x = BMI)) + geom_histogram()
+```
+```{r}
+#| fig-cap: "Distribution of BMI"
+#| label: fig-bmi-histo
+ggplot(post_meal_data, aes(x = BMI)) + geom_histogram()
+```
 
+Making a figure link that opens a windows figure when hovering over it. 
+@fig-bmi-histo
 
+## Exercise discerete plots
 
+```{r}
+#| fig-cap: "Discrete plotting of glykemi"
+#| label: fig-glykemi
+
+ggplot(post_meal_data, aes(glykemi)) + geom_bar()
+
+```
+
+@fig-glykemi
 
