@@ -817,6 +817,33 @@ Figure&nbsp;4: Scatterplot of correlation between BMI and Glucose
 </div>
 </div>
 </section>
+<section id="modify-or-add-column" class="level2">
+<h2 class="anchored" data-anchor-id="modify-or-add-column">Modify or add column</h2>
+<p>Mutate function. Left side defines new variable. Right side performs action. Group = if_else. This statement searches the Group for the true condition “CTR”. If its met, the cell value will be replaced with “Control” otherwise it will be replaced with “First-degree relative”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>tidier_post_meal_data <span class="sc">|&gt;</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">insulin_glucose_ratio =</span> auc_insulin <span class="sc">/</span> auc_glucose,</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Group =</span> <span class="fu">if_else</span>(Group <span class="sc">==</span> <span class="st">"CTR"</span>, <span class="st">"Control"</span>, <span class="st">"First-degree relative"</span>)</span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 27 × 7
+      id   Age   BMI Group         auc_glucose auc_insulin insulin_glucose_ratio
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt;       &lt;dbl&gt;                 &lt;dbl&gt;
+ 1     1    50  27.5 First-degree…        806.      28728.                  35.7
+ 2     2    51  33.7 First-degree…        944.      42243.                  44.7
+ 3     3    43  26.3 First-degree…        694.       7108.                  10.2
+ 4     4    55  25.9 First-degree…        731.      37593.                  51.4
+ 5     5    53  29.4 First-degree…       1004.      33863.                  33.7
+ 6     6    51  23.7 First-degree…        713.      15008.                  21.1
+ 7     7    48  23.9 First-degree…        965.      23196.                  24.0
+ 8     8    35  22   First-degree…        741.      15272.                  20.6
+ 9     9    54  26.4 First-degree…        848.      24426.                  28.8
+10    10    52  24.5 First-degree…        759.      22475.                  29.6
+# ℹ 17 more rows</code></pre>
+</div>
+</div>
+</section>
 
 </main>
 <!-- /main column -->

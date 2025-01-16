@@ -208,3 +208,14 @@ small_post_meal_data |>
 small_post_meal_data |>
   filter(Group == "CTR" | BMI >= 25)
 ```
+
+## Modify or add column
+Mutate function. Left side defines new variable. Right side performs action.
+Group = if_else. This statement searches the Group for the true condition "CTR". If its met, the cell value will be replaced with "Control" otherwise it will be replaced with "First-degree relative".
+```{r}
+tidier_post_meal_data |>
+  mutate(
+    insulin_glucose_ratio = auc_insulin / auc_glucose,
+    Group = if_else(Group == "CTR", "Control", "First-degree relative")
+  )
+```
